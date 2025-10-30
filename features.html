@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>InkPocket — Features</title>
+  <meta name="description" content="Discover the features InkPocket is bringing to Disney Lorcana deck builders." />
+  <style>
+    :root{
+      --bg:#0f1016; --card:#151828; --text:#e9edf5; --muted:#a5afc2; --accent:#7b5cff; --accent2:#00d4ff;
+      --stroke:rgba(255,255,255,.08);
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{margin:0; color:var(--text); font:16px/1.45 system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif; background:var(--bg)}
+
+    .hero-bg{
+      position:fixed; inset:0; pointer-events:none; z-index:-1;
+      background:
+        radial-gradient(1200px 700px at -10% -10%, rgba(123,92,255,.20), transparent 60%),
+        radial-gradient(1100px 650px at 110% 0%, rgba(0,212,255,.20), transparent 55%),
+        radial-gradient(900px 500px at 70% 90%, rgba(255,255,255,.045), transparent 60%),
+        var(--bg);
+    }
+
+    .wrap{max-width:700px; margin:0 auto; padding:24px; min-height:100vh; display:flex; flex-direction:column}
+
+    .nav{position:relative; display:flex; align-items:center; justify-content:center; gap:16px; padding:14px 18px; border:1px solid var(--stroke); border-radius:18px; background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02)); backdrop-filter:saturate(140%) blur(6px)}
+    .brand{display:flex; align-items:center; gap:10px; position:absolute; left:18px; top:50%; transform:translateY(-50%)}
+    .logo{width:28px; height:28px; border-radius:8px; display:block; object-fit:cover; box-shadow:inset 0 0 14px rgba(0,0,0,.35); overflow:hidden}
+    .brand b{letter-spacing:.2px}
+    .links{display:flex; gap:18px; align-items:center; justify-content:center}
+    .links a{color:var(--text); text-decoration:none; font-weight:500; opacity:.9}
+    .links a:hover{opacity:1}
+
+    .placeholder{flex:1; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; gap:18px}
+    h1{font-size:48px; line-height:1.08; margin:0}
+    .placeholder p{color:var(--muted); margin:0; max-width:480px}
+    .home-link{display:inline-flex; align-items:center; justify-content:center; gap:8px; padding:10px 18px; border-radius:12px; border:1px solid var(--stroke); background:rgba(12,14,21,.8); color:var(--text); text-decoration:none; font-weight:500}
+    .home-link:hover{background:rgba(12,14,21,1); opacity:1}
+  </style>
+</head>
+<body>
+  <div class="hero-bg" aria-hidden="true"></div>
+  <div class="wrap">
+    <nav class="nav">
+      <div class="brand">
+        <img class="logo" src="/assets/logo.svg" alt="InkPocket logo"/>
+        <b>InkPocket</b>
+      </div>
+      <div class="links">
+        <a href="features.html" aria-current="page">Features</a>
+        <a href="faq.html">FAQ</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </nav>
+
+    <main class="placeholder">
+      <h1>Features Page</h1>
+      <p>We are curating a detailed look at everything InkPocket offers deck builders. This content is coming soon.</p>
+      <a class="home-link" href="index.html">Return to homepage</a>
+    </main>
+  </div>
+</body>
+</html>
