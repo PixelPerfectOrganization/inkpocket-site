@@ -1,0 +1,10 @@
+{
+  "applinks": {
+    "details": [
+      {
+        "appIDs": ["9YCX65233Z.com.lambdaxe.inkpocket"],
+        "paths": [ "/decks/import", "/decks/import/*" ]
+      }
+    ]
+  }
+}
