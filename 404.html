@@ -2,19 +2,19 @@
 <html lang="it">
 <meta charset="utf-8" />
 <meta name="robots" content="noindex" />
-<title>Reindirizzamento…</title>
-<script>
-  (function () {
-    // Se vuoi reindirizzare qualsiasi /decks/import* alla home:
-    var path = location.pathname || "";
-    if (path.toLowerCase().startsWith("/decks/import")) {
-      // Se vuoi conservare query/hash, appendili alla home (opzionale)
-      // location.replace("/" + location.search + location.hash);
-      location.replace("/"); // semplice: vai alla home se vede un import
-      return;
-    }
-    // Fallback: classica 404 (qui potresti rimandare alla home o mostrare un messaggio)
-    document.write("<p>Pagina non trovata. <a href='/'>Torna alla home</a>.</p>");
-  })();
-</script>
+<title>Deck link detected</title>
+<style>
+  body{margin:0;font:16px/1.45 system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;background:#0f1016;color:#e9edf5;display:grid;place-items:center;height:100vh}
+  .card{max-width:720px;padding:24px;border-radius:16px;border:1px solid rgba(255,255,255,.08);background:linear-gradient(180deg,rgba(255,255,255,.04),rgba(255,255,255,.02))}
+  .muted{color:#a5afc2}
+  a.btn{display:inline-block;margin-top:12px;padding:12px 16px;border-radius:12px;border:1px solid rgba(255,255,255,.14);text-decoration:none;color:#e9edf5;background:#0c0e15}
+</style>
+<body>
+  <div class="card">
+    <h1>You opened a link to import a deck</h1>
+    <p class="muted">These links open in the InkPocket app to automatically import your deck. If you're seeing this page, it means the link opened in your browser.</p>
+    <p>Open the app and try again, or return to the home page to download it and see how it works.</p>
+    <a href="/" class="btn">Back to Home</a>
+  </div>
+</body>
 </html>
