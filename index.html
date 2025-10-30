@@ -32,33 +32,32 @@
 
     .wrap{max-width:1100px; margin:0 auto; padding:24px}
 
-    .nav{display:flex; align-items:center; justify-content:space-between; gap:16px; padding:14px 18px; border:1px solid var(--stroke); border-radius:18px; background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02)); backdrop-filter:saturate(140%) blur(6px)}
-    .brand{display:flex; align-items:center; gap:10px}
-    .logo{width:28px; height:28px; border-radius:8px; background:conic-gradient(from 0deg, var(--accent), var(--accent2), var(--accent)); box-shadow:inset 0 0 14px rgba(0,0,0,.35)}
+    .nav{position:relative; display:flex; align-items:center; justify-content:center; gap:16px; padding:14px 18px; border:1px solid var(--stroke); border-radius:18px; background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02)); backdrop-filter:saturate(140%) blur(6px)}
+    .brand{display:flex; align-items:center; gap:10px; position:absolute; left:18px; top:50%; transform:translateY(-50%)}
+    .logo{width:28px; height:28px; border-radius:8px; display:block; object-fit:cover; box-shadow:inset 0 0 14px rgba(0,0,0,.35); overflow:hidden}
     .brand b{letter-spacing:.2px}
-    .links{display:flex; gap:18px; align-items:center}
+    .links{display:flex; gap:18px; align-items:center; justify-content:center}
     .links a{color:var(--text); text-decoration:none; font-weight:500; opacity:.9}
     .links a:hover{opacity:1}
     .lang{display:flex; gap:8px; align-items:center; color:var(--muted); font-size:14px}
 
     .hero{display:grid; grid-template-columns: 1.05fr .95fr; gap:30px; align-items:center; margin-top:36px}
-    @media (max-width:980px){ .hero{grid-template-columns:1fr; text-align:center} .cta{justify-content:center} }
+    @media (max-width:980px){
+      .hero{grid-template-columns:1fr; text-align:center}
+      .hero-phone{justify-self:center; max-width:320px}
+      .cta{justify-content:center}
+    }
 
     h1{font-size:52px; line-height:1.08; margin:0 0 12px}
     .lead{color:var(--muted); font-size:18px; margin:0 0 18px}
     .cta{display:flex; gap:12px; flex-wrap:wrap}
-    .btn-store{display:inline-flex; align-items:center; gap:10px; padding:10px 14px; background:#0c0e15; border:1px solid var(--stroke); border-radius:12px; text-decoration:none; color:var(--text)}
-    .btn-store img{height:30px}
+    .btn-store{display:inline-flex; align-items:center; gap:10px; background:#0c0e15; border:1px solid var(--stroke); text-decoration:none; color:var(--text)}
+    .btn-store img{height:60px}
+    .hero-phone{width:100%; max-width:420px; display:block; justify-self:end}
 
-    .phone{
-      position:relative; aspect-ratio: 9 / 16; border-radius:34px; overflow:hidden; border:1px solid var(--stroke);
-      box-shadow:0 30px 80px rgba(0,0,0,.50), inset 0 0 0 1px rgba(255,255,255,.02);
-      background:linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.0));
-    }
-    .phone img{width:100%; height:100%; object-fit:cover}
-
-    .features{display:grid; grid-template-columns: repeat(3,1fr); gap:16px; margin:38px 0}
-    @media (max-width:900px){ .features{grid-template-columns: 1fr;}}
+    .features-section{width:100%; padding:48px 0 16px; margin:32px 0 0}
+    .features-container{max-width:1100px; margin:0 auto; padding:0 24px}
+    .features-grid{display:grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap:16px}
     .card{background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02)); border:1px solid var(--stroke); border-radius:16px; padding:18px}
     .card h3{margin:0 0 6px; font-size:18px}
     .card p{margin:0; color:var(--muted)}
@@ -80,22 +79,20 @@
 
     <nav class="nav">
       <div class="brand">
-        <div class="logo" aria-hidden="true"></div>
+        <img class="logo" src="/assets/logo.svg" alt="InkPocket logo"/>
         <b>InkPocket</b>
       </div>
       <div class="links">
-        <a href="#features">Features</a>
-        <a href="#pricing">Pricing</a>
-        <a href="#faq">FAQ</a>
-        <a href="#contact">Contact</a>
+        <a href="features.html">Features</a>
+        <a href="faq.html">FAQ</a>
+        <a href="contact.html">Contact</a>
       </div>
-      <div class="lang">English ▾</div>
     </nav>
 
     <section class="hero">
       <div>
         <h1>Be a part of<br>the InkPocket app</h1>
-        <p class="lead">Create, import, and share Disney Lorcana decks. Scan your cards, analyze your curve, and keep your collection always with you.</p>
+        <p class="lead">Create, import, and share Disney Lorcana decks. Scan your cards, check price and keep your collection always with you.</p>
         <div class="cta">
           <a class="btn-store" href="https://apps.apple.com/app/idYOUR_APP_ID">
             <img src="/assets/appstore-badge.svg" alt="Download on the App Store"/>
@@ -105,26 +102,30 @@
           </a>
         </div>
       </div>
-      <div class="phone">
-        <img src="/assets/hero-phone.png" alt="InkPocket preview"/>
-      </div>
-    <section id="legal" class="legal">
-
-    <section id="features" class="features">
-      <div class="card">
-        <h3>Import from link</h3>
-        <p>Open shared deck links and import them with one tap. If you open those links on the web, you’ll be redirected here and find instructions.</p>
-      </div>
-      <div class="card">
-        <h3>Card scanner</h3>
-        <p>Quick card recognition and automatic collection updates with live statistics.</p>
-      </div>
-      <div class="card">
-        <h3>Deck builder</h3>
-        <p>Mana curves, inkable ratio, advanced filters, and instant deck sharing with generated images.</p>
-      </div>
+      <img class="hero-phone" src="/assets/hero-phone.png" alt="InkPocket preview"/>
     </section>
-      
+  </div>
+
+  <section id="features" class="features-section">
+    <div class="features-container">
+      <div class="features-grid">
+        <div class="card">
+          <h3>Import from link</h3>
+          <p>Open shared deck links and import them with one tap. If you open those links on the web, you’ll be redirected here and find instructions.</p>
+        </div>
+        <div class="card">
+          <h3>Card scanner</h3>
+          <p>Quick card recognition and automatic collection updates with live statistics.</p>
+        </div>
+        <div class="card">
+          <h3>Deck builder</h3>
+          <p>Mana curves, inkable ratio, advanced filters, and instant deck sharing with generated images.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="wrap">
     <section id="legal" class="legal">
       <h2>Legal notice & trademark credit</h2>
       <p>This website uses trademarks and/or copyrights associated with <em>Disney Lorcana Trading Card Game</em>, used under <a href="https://cdn.ravensburger.com/lorcana/community-code-en" target="_blank" rel="noopener">Ravensburger’s Community Code Policy</a>. We are expressly prohibited from charging you to use or access this content. This website is not published, endorsed, or specifically approved by Disney or Ravensburger. For more information about <em>Disney Lorcana Trading Card Game</em>, visit <a href="https://www.disneylorcana.com/en-US/" target="_blank" rel="noopener">disneylorcana.com</a>.</p>
@@ -141,4 +142,3 @@
   </script>
 </body>
 </html>
-
