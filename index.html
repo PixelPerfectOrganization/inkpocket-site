@@ -1,20 +1,49 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="it">
 <head>
-  <meta charset="utf-8">
-  <title>InkPocket</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" href="icon.png">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>InkPocket — Manage your collection and share your Lorcana decks</title>
+  <meta name="description" content="InkPocket is the app for creating, importing, and sharing Disney Lorcana decks. Scan cards, keep your collection up to date, find out which cards you're missing and their values, and build your decks quickly and easily.." />
+  <meta property="og:title" content="InkPocket — Manage your collection and share your Lorcana decks" />
+  <meta property="og:description" content="Create, import, and share Lorcana decks. Scan cards, calculate curves, and keep everything in sync.." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="/assets/og-image.jpg" />
+  <meta name="theme-color" content="#0f1016">
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
+  <!-- Smart App Banner iOS (sostituisci) -->
+  <meta name="apple-itunes-app" content="app-id=YOUR_APP_ID">
   <style>
-    body { font-family: system-ui; background: #1b1b1b; color: #fff; margin: 0; text-align: center; }
-    h1 { font-size: 2.5em; margin-top: 2em; }
-    p { font-size: 1.2em; opacity: .8; }
-    .btn { display: inline-block; margin-top: 2em; padding: 1em 2em; background: #6c5ce7; border-radius: 8px; color: white; text-decoration: none; font-weight: 600; }
-  </style>
-</head>
-<body>
-  <h1>InkPocket</h1>
-  <p>Track, scan and share your Disney Lorcana collection with style.</p>
-  <a href="https://apps.apple.com/app/idYOUR_APP_ID" class="btn">Download on the App Store</a>
-</body>
-</html>
+    :root{
+      --bg:#0f1016; --card:#151828; --text:#e9edf5; --muted:#a5afc2; --accent:#7b5cff; --accent2:#00d4ff;
+      --stroke:rgba(255,255,255,.08);
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{margin:0; color:var(--text); font:16px/1.45 system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif; background:var(--bg)}
+
+    /* Backdrop gradient like reference */
+    .hero-bg{
+      position:fixed; inset:0; pointer-events:none; z-index:-1;
+      background:
+        radial-gradient(1200px 700px at -10% -10%, rgba(123,92,255,.20), transparent 60%),
+        radial-gradient(1100px 650px at 110% 0%, rgba(0,212,255,.20), transparent 55%),
+        radial-gradient(900px 500px at 70% 90%, rgba(255,255,255,.045), transparent 60%),
+        var(--bg);
+    }
+
+    .wrap{max-width:1100px; margin:0 auto; padding:24px}
+
+    /* NAV */
+    .nav{display:flex; align-items:center; justify-content:space-between; gap:16px; padding:14px 18px; border:1px solid var(--stroke); border-radius:18px; background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02)); backdrop-filter:saturate(140%) blur(6px)}
+    .brand{display:flex; align-items:center; gap:10px}
+    .logo{width:28px; height:28px; border-radius:8px; background:conic-gradient(from 0deg, var(--accent), var(--accent2), var(--accent)); box-shadow:inset 0 0 14px rgba(0,0,0,.35)}
+    .brand b{letter-spacing:.2px}
+    .links{display:flex; gap:18px; align-items:center}
+    .links a{color:var(--text); text-decoration:none; font-weight:500; opacity:.9}
+    .links a:hover{opacity:1}
+    .lang{display:flex; gap:8px; align-items:center; color:var(--muted); font-size:14px}
+
+    /* HERO */
+    .hero{display:grid; grid-template-columns: 1.05fr .95fr; gap:30px; align-items:center; margin-top:36px}
+    @media (max-width:980px
