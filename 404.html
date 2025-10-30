@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="it">
+<meta charset="utf-8" />
+<meta name="robots" content="noindex" />
+<title>Reindirizzamento…</title>
+<script>
+  (function () {
+    // Se vuoi reindirizzare qualsiasi /decks/import* alla home:
+    var path = location.pathname || "";
+    if (path.toLowerCase().startsWith("/decks/import")) {
+      // Se vuoi conservare query/hash, appendili alla home (opzionale)
+      // location.replace("/" + location.search + location.hash);
+      location.replace("/"); // semplice: vai alla home se vede un import
+      return;
+    }
+    // Fallback: classica 404 (qui potresti rimandare alla home o mostrare un messaggio)
+    document.write("<p>Pagina non trovata. <a href='/'>Torna alla home</a>.</p>");
+  })();
+</script>
+</html>
