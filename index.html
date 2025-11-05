@@ -100,12 +100,12 @@
     .hero{position:relative}
     .hero::before{content:""; position:absolute; inset:-24px 0 -24px 0; pointer-events:none; z-index:-1; opacity:.35;
       background: radial-gradient(900px 460px at 52% 8%, rgba(109,112,164,.28), transparent 60%);
-      mix-blend:screen;}
+      mix-blend-mode: screen;}
 
     .hero-phone{filter: drop-shadow(0 20px 60px rgba(0,0,0,.6)); transform: perspective(1000px) rotateY(-8deg); transition: transform .25s ease}
     .hero-phone:hover{transform: perspective(1000px) rotateY(-2deg)}
 
-    .section{padding:64px 0}
+    .section{padding:64px 24px}
     .section h2{font-size:28px; margin:0 0 8px}
     .section .lead{max-width:760px}
 
@@ -119,6 +119,16 @@
     .cta-actions{display:flex; gap:12px; flex-wrap:wrap}
 
     .muted-small{color:var(--muted); font-size:14px}
+
+    .content-card{border:1px solid var(--stroke); border-radius:16px; padding:18px; background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02))}
+    .content-card .cta-banner{border:0; padding:18px; background:transparent}
+    @media (max-width: 560px){
+      .nav{flex-direction:column; align-items:stretch; gap:10px}
+      .brand{position:static; transform:none; margin:0}
+      .links{justify-content:flex-start; flex-wrap:wrap; gap:12px}
+      .hero-phone{ transform: none !important; }
+      .hero-phone:hover{ transform: none !important; }
+    }
   </style>
 </head>
 <body>
@@ -153,44 +163,50 @@
   </div>
 
   <section id="features" class="section wrap">
-    <h2>What you can do with InkPocket</h2>
-    <p class="lead">Build, import, and share Disney Lorcana decks in seconds. Scan cards to update your collection and get instant stats like mana curves and inkable ratios.</p>
-    <div class="features-grid" style="margin-top:16px">
-      <div class="card">
-        <h3>Import from link</h3>
-        <p>Open shared deck links and import them with one tap. Link catcher works from the web, too.</p>
-      </div>
-      <div class="card">
-        <h3>Card scanner</h3>
-        <p>Fast card recognition with auto‑collection updates and live totals.</p>
-      </div>
-      <div class="card">
-        <h3>Deck builder</h3>
-        <p>Advanced filters, mana curves, inkable/non‑inkable breakdowns, and shareable images.</p>
+    <div class="content-card">
+      <h2>What you can do with InkPocket</h2>
+      <p class="lead">Build, import, and share Disney Lorcana decks in seconds. Scan cards to update your collection and get instant stats like mana curves and inkable ratios.</p>
+      <div class="features-grid" style="margin-top:16px">
+        <div class="card">
+          <h3>Import from link</h3>
+          <p>Open shared deck links and import them with one tap. Link catcher works from the web, too.</p>
+        </div>
+        <div class="card">
+          <h3>Card scanner</h3>
+          <p>Fast card recognition with auto‑collection updates and live totals.</p>
+        </div>
+        <div class="card">
+          <h3>Deck builder</h3>
+          <p>Advanced filters, mana curves, inkable/non‑inkable breakdowns, and shareable images.</p>
+        </div>
       </div>
     </div>
   </section>
 
   <section id="screens" class="section wrap">
-    <h2>Peek at the app</h2>
-    <p class="lead">A quick look at the current beta. Visuals and features are evolving rapidly.</p>
-    <div class="screens" style="margin-top:16px">
-      <div class="screen-card"><img src="/assets/screen-1.png" alt="Deck list preview"></div>
-      <div class="screen-card"><img src="/assets/screen-2.png" alt="Deck builder preview"></div>
-      <div class="screen-card"><img src="/assets/screen-3.png" alt="Card scanner preview"></div>
+    <div class="content-card">
+      <h2>Peek at the app</h2>
+      <p class="lead">A quick look at the current beta. Visuals and features are evolving rapidly.</p>
+      <div class="screens" style="margin-top:16px">
+        <div class="screen-card"><img src="/assets/screen-1.png" alt="Deck list preview"></div>
+        <div class="screen-card"><img src="/assets/screen-2.png" alt="Deck builder preview"></div>
+        <div class="screen-card"><img src="/assets/screen-3.png" alt="Card scanner preview"></div>
+      </div>
     </div>
   </section>
 
   <section id="join" class="section wrap">
-    <div class="cta-banner">
-      <div>
-        <h2>Want early access?</h2>
-        <p class="lead">InkPocket is in private beta. We’re inviting a limited number of testers. If you’re interested, send us an email and we’ll add you when slots open.</p>
-        <p class="muted-small">Email: <a href="mailto:inkpockethelp@gmail.com">inkpockethelp@gmail.com</a>. Please include your device (iOS/Android) and region.</p>
-      </div>
-      <div class="cta-actions">
-        <a class="btn btn-primary" href="mailto:inkpockethelp@gmail.com?subject=InkPocket%20Beta%20Access&body=Hi!%20I%27d%20like%20to%20join%20the%20InkPocket%20beta.%20Here%20are%20my%20details:">Request access</a>
-        <a class="btn btn-ghost" href="#features">See features</a>
+    <div class="content-card">
+      <div class="cta-banner">
+        <div>
+          <h2>Want early access?</h2>
+          <p class="lead">InkPocket is in private beta. We’re inviting a limited number of testers. If you’re interested, send us an email and we’ll add you when slots open.</p>
+          <p class="muted-small">Email: <a href="mailto:inkpockethelp@gmail.com">inkpockethelp@gmail.com</a>. Please include your device (iOS/Android) and region.</p>
+        </div>
+        <div class="cta-actions">
+          <a class="btn btn-primary" href="mailto:inkpockethelp@gmail.com?subject=InkPocket%20Beta%20Access&body=Hi!%20I%27d%20like%20to%20join%20the%20InkPocket%20beta.%20Here%20are%20my%20details:">Request access</a>
+          <a class="btn btn-ghost" href="#features">See features</a>
+        </div>
       </div>
     </div>
   </section>
