@@ -18,25 +18,36 @@
   <meta name="apple-itunes-app" content="app-id=YOUR_APP_ID">
   <style>
     :root{
-      --bg:#0f1016; --card:#151828; --text:#e9edf5; --muted:#a5afc2; --accent:#7b5cff; --accent2:#00d4ff;
+      --bg:#1c1919;            /* onBackground (dark) */
+      --card:#373b70;          /* appPrimary (dark) used for accents/cards */
+      --text:#ffffff;          /* appLabelColor (dark) */
+      --muted:#e3e3e3;         /* Outline */
+      --accent:#6d70a4;        /* appPrimaryContainer (dark) */
+      --accent2:#3ed598;       /* Tertiary */
       --stroke:rgba(255,255,255,.08);
     }
     *{box-sizing:border-box}
     html,body{height:100%}
     body{margin:0; color:var(--text); font:16px/1.45 system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif; background:var(--bg)}
 
+    /* Global link color = app accent */
+    a{ color: var(--accent2); }
+    a:hover{ text-decoration: underline; }
+
     .hero-bg{
       position:fixed; inset:0; pointer-events:none; z-index:-1;
       background:
-        radial-gradient(1200px 700px at -10% -10%, rgba(123,92,255,.20), transparent 60%),
-        radial-gradient(1100px 650px at 110% 0%, rgba(0,212,255,.20), transparent 55%),
-        radial-gradient(900px 500px at 70% 90%, rgba(255,255,255,.045), transparent 60%),
+        linear-gradient(180deg, rgba(0,0,0,.30), rgba(0,0,0,.30)),
+        url('/assets/lorcana-bg-hero.jpg') center/cover no-repeat fixed,
+        radial-gradient(1400px 800px at 20% -10%, rgba(109,112,164,.32), transparent 60%),
+        radial-gradient(1200px 700px at 120% 5%, rgba(62,213,152,.18), transparent 55%),
+        radial-gradient(900px 500px at 70% 90%, rgba(255,255,255,.06), transparent 60%),
         var(--bg);
     }
 
     .wrap{max-width:1100px; margin:0 auto; padding:24px}
 
-    .nav{position:relative; display:flex; align-items:center; justify-content:center; gap:16px; padding:14px 18px; border:1px solid var(--stroke); border-radius:18px; background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02)); backdrop-filter:saturate(140%) blur(6px)}
+    .nav{position:relative; display:flex; align-items:center; justify-content:center; gap:16px; padding:14px 18px; border:1px solid var(--stroke); border-radius:18px; background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03)); backdrop-filter:saturate(140%) blur(6px)}
     .brand{display:flex; align-items:center; gap:10px; position:absolute; left:18px; top:50%; transform:translateY(-50%)}
     .logo{width:28px; height:28px; border-radius:8px; display:block; object-fit:cover; box-shadow:inset 0 0 14px rgba(0,0,0,.35); overflow:hidden}
     .brand b{letter-spacing:.2px}
@@ -52,7 +63,7 @@
       .cta{justify-content:center}
     }
 
-    h1{font-size:52px; line-height:1.08; margin:0 0 12px}
+    h1{font-size:52px; line-height:1.08; margin:0 0 12px; text-shadow:0 2px 18px rgba(0,0,0,.35);}
     .lead{color:var(--muted); font-size:18px; margin:0 0 18px}
     .cta{display:flex; gap:12px; flex-wrap:wrap}
     .btn-store{display:inline-flex; align-items:center; gap:10px; background:#0c0e15; border:1px solid var(--stroke); text-decoration:none; color:var(--text)}
@@ -62,7 +73,7 @@
     .features-section{width:100%; padding:48px 0 16px; margin:32px 0 0}
     .features-container{max-width:1100px; margin:0 auto; padding:0 24px}
     .features-grid{display:grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap:16px}
-    .card{background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02)); border:1px solid var(--stroke); border-radius:16px; padding:18px}
+    .card{background:linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.03)); border:1px solid var(--stroke); border-radius:16px; padding:18px}
     .card h3{margin:0 0 6px; font-size:18px}
     .card p{margin:0; color:var(--muted)}
 
@@ -75,6 +86,39 @@
 
     footer{display:flex; justify-content:space-between; align-items:center; gap:10px; color:var(--muted); font-size:14px; margin:36px 0}
     footer a{color:var(--muted)}
+
+    /* --- New landing polish --- */
+    .pill{display:inline-flex; align-items:center; gap:8px; padding:6px 10px; border-radius:999px; border:1px solid var(--stroke); background:rgba(12,14,21,.6); font-size:13px; color:var(--muted)}
+    .pill .dot{width:6px; height:6px; border-radius:50%; background:var(--accent); box-shadow:0 0 10px rgba(123,92,255,.65)}
+
+    .btn{display:inline-flex; align-items:center; justify-content:center; gap:10px; padding:12px 16px; border-radius:12px; border:1px solid var(--stroke); text-decoration:none; font-weight:600}
+    .btn-primary{background:linear-gradient(180deg, rgba(109,112,164,.30), rgba(55,59,112,.15)); color:var(--text)}
+    .btn-primary:hover{filter:brightness(1.08)}
+    .btn-ghost{background:rgba(255,255,255,.06); color:var(--text)}
+    .btn-ghost:hover{background:rgba(12,14,21,.9)}
+
+    .hero{position:relative}
+    .hero::before{content:""; position:absolute; inset:-24px 0 -24px 0; pointer-events:none; z-index:-1; opacity:.35;
+      background: radial-gradient(900px 460px at 52% 8%, rgba(109,112,164,.28), transparent 60%);
+      mix-blend:screen;}
+
+    .hero-phone{filter: drop-shadow(0 20px 60px rgba(0,0,0,.6)); transform: perspective(1000px) rotateY(-8deg); transition: transform .25s ease}
+    .hero-phone:hover{transform: perspective(1000px) rotateY(-2deg)}
+
+    .section{padding:64px 0}
+    .section h2{font-size:28px; margin:0 0 8px}
+    .section .lead{max-width:760px}
+
+    .screens{
+      display:grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap:16px; align-items:stretch;
+    }
+    .screen-card{border:0; border-radius:16px; background:transparent; overflow:visible}
+    .screen-card img{display:block; width:100%; height:auto; border-radius:16px; box-shadow:0 14px 40px rgba(0,0,0,.45)}
+
+    .cta-banner{display:flex; align-items:center; justify-content:space-between; gap:18px; border:1px solid var(--stroke); border-radius:18px; padding:18px 20px; background:linear-gradient(180deg, rgba(62,213,152,.12), rgba(109,112,164,.12))}
+    .cta-actions{display:flex; gap:12px; flex-wrap:wrap}
+
+    .muted-small{color:var(--muted); font-size:14px}
   </style>
 </head>
 <body>
@@ -87,44 +131,66 @@
         <b>InkPocket</b>
       </div>
       <div class="links">
-        <a href="features.html">Features</a>
-        <a href="faq.html">FAQ</a>
-        <a href="contact.html">Contact</a>
+        <a href="#features">Features</a>
+        <a href="#screens">Screens</a>
+        <a href="#join">Join Beta</a>
       </div>
     </nav>
 
     <section class="hero">
       <div>
+        <div class="pill"><span class="dot" aria-hidden="true"></span> Private beta — not on stores yet</div>
         <h1>Be a part of<br>the InkPocket app</h1>
         <p class="lead">Create, import, and share Disney Lorcana decks. Scan your cards, check price and keep your collection always with you.</p>
         <div class="cta">
-          <a class="btn-store" href="https://apps.apple.com/app/idYOUR_APP_ID">
-            <img src="/assets/appstore-badge.svg" alt="Download on the App Store"/>
-          </a>
-          <a class="btn-store" href="https://play.google.com/store/apps/details?id=YOUR_APP_ID">
-            <img src="/assets/googleplay-badge.svg" alt="Get it on Google Play"/>
-          </a>
+          <a class="btn btn-primary" href="#join">Join the Beta</a>
+          <a class="btn btn-ghost" href="mailto:inkpockethelp@gmail.com?subject=InkPocket%20Beta%20Access&body=Hi!%20I%27d%20like%20to%20join%20the%20InkPocket%20beta.%20Here%20are%20my%20details:">Contact us</a>
         </div>
+        <p class="muted-small">Looking for the official app? Visit <a href="https://www.disneylorcana.com/en-US/app" target="_blank" rel="noopener">disneylorcana.com/app</a>.</p>
       </div>
       <img class="hero-phone" src="/assets/hero-phone.png" alt="InkPocket preview"/>
     </section>
   </div>
 
-  <section id="features" class="features-section">
-    <div class="features-container">
-      <div class="features-grid">
-        <div class="card">
-          <h3>Import from link</h3>
-          <p>Open shared deck links and import them with one tap. If you open those links on the web, you’ll be redirected here and find instructions.</p>
-        </div>
-        <div class="card">
-          <h3>Card scanner</h3>
-          <p>Quick card recognition and automatic collection updates with live statistics.</p>
-        </div>
-        <div class="card">
-          <h3>Deck builder</h3>
-          <p>Mana curves, inkable ratio, advanced filters, and instant deck sharing with generated images.</p>
-        </div>
+  <section id="features" class="section wrap">
+    <h2>What you can do with InkPocket</h2>
+    <p class="lead">Build, import, and share Disney Lorcana decks in seconds. Scan cards to update your collection and get instant stats like mana curves and inkable ratios.</p>
+    <div class="features-grid" style="margin-top:16px">
+      <div class="card">
+        <h3>Import from link</h3>
+        <p>Open shared deck links and import them with one tap. Link catcher works from the web, too.</p>
+      </div>
+      <div class="card">
+        <h3>Card scanner</h3>
+        <p>Fast card recognition with auto‑collection updates and live totals.</p>
+      </div>
+      <div class="card">
+        <h3>Deck builder</h3>
+        <p>Advanced filters, mana curves, inkable/non‑inkable breakdowns, and shareable images.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="screens" class="section wrap">
+    <h2>Peek at the app</h2>
+    <p class="lead">A quick look at the current beta. Visuals and features are evolving rapidly.</p>
+    <div class="screens" style="margin-top:16px">
+      <div class="screen-card"><img src="/assets/screen-1.png" alt="Deck list preview"></div>
+      <div class="screen-card"><img src="/assets/screen-2.png" alt="Deck builder preview"></div>
+      <div class="screen-card"><img src="/assets/screen-3.png" alt="Card scanner preview"></div>
+    </div>
+  </section>
+
+  <section id="join" class="section wrap">
+    <div class="cta-banner">
+      <div>
+        <h2>Want early access?</h2>
+        <p class="lead">InkPocket is in private beta. We’re inviting a limited number of testers. If you’re interested, send us an email and we’ll add you when slots open.</p>
+        <p class="muted-small">Email: <a href="mailto:inkpockethelp@gmail.com">inkpockethelp@gmail.com</a>. Please include your device (iOS/Android) and region.</p>
+      </div>
+      <div class="cta-actions">
+        <a class="btn btn-primary" href="mailto:inkpockethelp@gmail.com?subject=InkPocket%20Beta%20Access&body=Hi!%20I%27d%20like%20to%20join%20the%20InkPocket%20beta.%20Here%20are%20my%20details:">Request access</a>
+        <a class="btn btn-ghost" href="#features">See features</a>
       </div>
     </div>
   </section>
